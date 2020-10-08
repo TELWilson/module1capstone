@@ -11,7 +11,20 @@ namespace Capstone.Classes
     {
         private List<CateringItem> items = new List<CateringItem>();
 
-        private string filePath = @"C:\Catering"; // You will likely need to create this folder on your machine
+        //private string filePath = @"C:\Catering"; // You will likely need to create this folder on your machine
+
+        public List<CateringItem> AllCateringItems
+        {
+            get
+            {
+                return this.items;
+            }
+        }
+
+        public void Add(CateringItem item)
+        {
+            this.items.Add(item);
+        }
    
         //sample Question Manager for help
         // empty constructor
