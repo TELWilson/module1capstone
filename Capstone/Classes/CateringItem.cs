@@ -9,6 +9,12 @@ namespace Capstone.Classes
     /// </summary>
     public class CateringItem
     {
+        //need beverage, entree, appetizer, and dessert??
 
+        // constructor with name, price, item number, and type?
+
+      
+
+        // See interview question for sample
     }
 }
