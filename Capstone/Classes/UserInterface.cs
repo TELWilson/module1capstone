@@ -21,6 +21,15 @@ namespace Capstone.Classes
             {
                 Console.WriteLine("This is the UserInterface");
                 Console.ReadLine();
+                // need to generate main menu
+                //need to generate sub menu when 2 Order is selected
+                //will need a swtich to turn the main menu on and off
+                // will need a switch to turn sub menu on and off
+                // see module 1 review user interface
+
+                //need to generate a report that shows users transaction history when transaction completed
+                //need item count, type, description, item price, and total for item as well as total for transaction
+                //display main menu
             }
 
         }
