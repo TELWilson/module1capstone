@@ -26,17 +26,26 @@ namespace Capstone.Classes
             this.items.Add(item);
         }
 
-        public decimal Money { get; set; } = 0;
+        // Method to take in product code and return a Catering Item
+        public CateringItem FindCorrectItem(string productCode)
+        {
+            foreach (CateringItem item in items)
+            {
+                if (item.ProductCode == productCode)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+        public int SubtractQuantity(CateringItem selectedItem, int purchaseQuantity)
+        {
+            return selectedItem.Quantity -= purchaseQuantity;
+        }
 
-        //public decimal AddMoney(decimal moneyAdd)
-        //{
-        //    return 0.0m;
-        //}
-       
-   
         //sample Question Manager for help
         // empty constructor
-        
+
 
 
         // each item will be deducted as users purchase items
@@ -59,7 +68,7 @@ namespace Capstone.Classes
 
         //will need to write a line to log.txt when money is added, change is given, number of product ordered
         //datetime formatting shared in slack also for currency
-        
+
 
     }
 }

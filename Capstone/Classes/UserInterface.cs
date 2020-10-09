@@ -14,14 +14,16 @@ namespace Capstone.Classes
     {
         private Catering catering;
         private FileAccess files;
-        
-        
+        private Money money;
+        private CateringItem cateringItem;
+
 
         public UserInterface()
         {
             this.catering = new Catering();
             this.files = new FileAccess();
-            
+            this.money = new Money();
+            //this.cateringItem = new CateringItem();
         }
        
         public void RunInterface()
@@ -67,22 +69,30 @@ namespace Capstone.Classes
                 Console.WriteLine("(2) Select Products");
                 Console.WriteLine("(3) Complete Transaction");
                 Console.WriteLine();
-                Console.WriteLine("Current Account Balance: "); // Add Account Balance
+                Console.WriteLine("Current Account Balance: $" + money.CurrentBalance);
 
                 string choicePurchasingMenu = Console.ReadLine();
 
                 switch (choicePurchasingMenu)
                 {
                     case "1":
-                        //this.AddMoney();
                         Console.WriteLine("Please enter a whole number for the amount of money you would like to add up to $5000");
                         decimal moneyAdd = Convert.ToDecimal(Console.ReadLine());
-                        this.AddMoney(moneyAdd);
+                        this.money.AddMoney(moneyAdd);
                         
                         break;
                     case "2":
-                        //this.SelectProducts();
+                        Console.WriteLine("Enter the product code you would like to purchase");
+                        string purchaseCode = Console.ReadLine();
+                        CateringItem item = this.catering.FindCorrectItem(purchaseCode);    // Pass result to Subtract Q if not null
+
+
+                        Console.WriteLine("Enter the quantity you would like to purchase");
+                        int purchaseQuantity = Convert.ToInt32(Console.ReadLine());
+
+                        this.catering.SubtractQuantity(item, purchaseQuantity);
                         break;
+
                     case "3":
                         //this.CompleteTransaction();
                         donePurchasing = true;
@@ -103,12 +113,7 @@ namespace Capstone.Classes
 
         }
 
-        public decimal AddMoney(decimal moneyAdd)
-        {
-            this.AddMoney(moneyAdd);
-            
-            return 0.0m;
-        }
+        
 
     }
 }

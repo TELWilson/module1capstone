@@ -31,5 +31,18 @@ namespace CapstoneTests
             //Assert
             Assert.AreEqual(1, cateringItems.Count);
         }
+
+        [TestMethod]
+        public void AddMoneyUpdatesCurrentBalance()
+        {
+            // Arrange
+            Money money = new Money();
+
+            // Act
+            decimal result = money.AddMoney(10M);
+
+            // Assert
+            Assert.AreEqual(10M, result);
+        }
     }
 }

@@ -18,12 +18,36 @@ namespace Capstone.Classes
             this.Quantity = 50;
         }
 
+        public CateringItem()
+        {
+
+        }
+
         public string ProductCode { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         public string Type { get; set; }
 
         public int Quantity { get; set; }
+
+        //public int SubtractQuantity(string purchaseCode, int purchaseQuantity)
+        //{
+
+        //    return this.Quantity -= purchaseQuantity;
+        //}
+
+        //public int SubtractQuantity(string purchaseCode, int purchaseQuantity)
+        //{
+        //    foreach (CateringItem item in items)
+        //    {
+        //        if (this.ProductCode == purchaseCode)
+        //        {
+
+        //        }
+        //    }
+        //    this.items
+        //    //return this.Quantity -= purchaseQuantity;
+        //}
 
         public override string ToString()
         {
