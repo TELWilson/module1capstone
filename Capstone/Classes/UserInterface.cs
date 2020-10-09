@@ -79,12 +79,12 @@ namespace Capstone.Classes
                         Console.WriteLine("Please enter a whole number for the amount of money you would like to add up to $5000");
                         decimal moneyAdd = Convert.ToDecimal(Console.ReadLine());
                         this.money.AddMoney(moneyAdd);
-                        
+
                         break;
                     case "2":
                         Console.WriteLine("Enter the product code you would like to purchase");
                         string purchaseCode = Console.ReadLine();
-                        CateringItem item = this.catering.FindCorrectItem(purchaseCode);
+                        CateringItem item = this.catering.FindCorrectItem(purchaseCode.ToUpper());
                         if (item == null)
                         {
                             Console.WriteLine("Product Not Found");
@@ -110,14 +110,35 @@ namespace Capstone.Classes
                             {
                                 this.catering.SubtractQuantity(item, purchaseQuantity);
                                 this.money.SubtractMoney(item.Price * purchaseQuantity);
+                                this.catering.Purchase(item);
                             }
                         }
                         break;
 
                     case "3":
-                        //this.CompleteTransaction();
+                        decimal orderTotal = 0;
+
+                        foreach (CateringItem purchasedItem in catering.PurchasedItems)
+                        {
+                            orderTotal += (purchasedItem.Price * (50 - purchasedItem.Quantity));
+
+                            Console.WriteLine((50 - purchasedItem.Quantity) + " " + purchasedItem.Type + " " + purchasedItem.Name + " $" + purchasedItem.Price + " $" + purchasedItem.Price * (50 - purchasedItem.Quantity));
+                        }
+
+                        Console.WriteLine();
+                        Console.WriteLine("Total: $" + orderTotal);
+
+                        //money.GiveChange();
+                        Console.WriteLine("Total Change: " + money.CurrentBalance  + " " + money.GiveChange());
+
+                        this.money.CurrentBalance = 0;
+
                         donePurchasing = true;
                         break;
+
+                        /* On screen report [Quantity, category, item, unit price, total price]
+                         * Change back (in units)
+                         */ 
 
                 }
             }

@@ -30,7 +30,7 @@ namespace Capstone.Classes
 
 
                     CateringItem item = new CateringItem(productCode, name, price, type);
-                    groupOfCateringItems.Add(item);
+                    groupOfCateringItems.AddNew(item);
                 }
             }
         }
