@@ -69,5 +69,7 @@ namespace CapstoneTests
             //Assert
             Assert.AreEqual(40.00M, result);
         }
+
+        
     }
 }

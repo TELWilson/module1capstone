@@ -14,6 +14,11 @@ namespace Capstone.Classes
 
         public decimal AddMoney(decimal moneyAdd)
         {
+            
+            if(this.CurrentBalance + moneyAdd > 5000.00M)
+            {
+                return this.CurrentBalance;
+            }
             return this.CurrentBalance += moneyAdd;
         }
 
