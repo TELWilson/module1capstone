@@ -16,5 +16,10 @@ namespace Capstone.Classes
         {
             return this.CurrentBalance += moneyAdd;
         }
+
+        public decimal SubtractMoney (decimal moneyMinus)
+        {
+            return this.CurrentBalance -= moneyMinus;
+        }
     }
 }

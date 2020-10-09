@@ -84,13 +84,34 @@ namespace Capstone.Classes
                     case "2":
                         Console.WriteLine("Enter the product code you would like to purchase");
                         string purchaseCode = Console.ReadLine();
-                        CateringItem item = this.catering.FindCorrectItem(purchaseCode);    // Pass result to Subtract Q if not null
+                        CateringItem item = this.catering.FindCorrectItem(purchaseCode);
+                        if (item == null)
+                        {
+                            Console.WriteLine("Product Not Found");
+                        }
+                        else if (item.Quantity == 0)
+                        {
+                            Console.WriteLine("Item is sold out, Please make another selection");
+                        }
+                        else
+                        {
 
-
-                        Console.WriteLine("Enter the quantity you would like to purchase");
-                        int purchaseQuantity = Convert.ToInt32(Console.ReadLine());
-
-                        this.catering.SubtractQuantity(item, purchaseQuantity);
+                            Console.WriteLine("Enter the quantity you would like to purchase");
+                            int purchaseQuantity = Convert.ToInt32(Console.ReadLine());
+                            if (money.CurrentBalance < (item.Price * purchaseQuantity))
+                            {
+                                Console.WriteLine("You have insufficient funds for transaction, please add more money.");
+                            }
+                            else if (purchaseQuantity > item.Quantity)
+                            {
+                                Console.WriteLine("There is insufficient stock to meet your request");
+                            }
+                            else
+                            {
+                                this.catering.SubtractQuantity(item, purchaseQuantity);
+                                this.money.SubtractMoney(item.Price * purchaseQuantity);
+                            }
+                        }
                         break;
 
                     case "3":
@@ -119,11 +140,9 @@ namespace Capstone.Classes
 }
 
 
-// need to generate main menu
-//need to generate sub menu when 2 Order is selected
-//will need a swtich to turn the main menu on and off
-// will need a switch to turn sub menu on and off
-// see module 1 review user interface
+
+
+
 
 //need to generate a report that shows users transaction history when transaction completed
 //need item count, type, description, item price, and total for item as well as total for transaction

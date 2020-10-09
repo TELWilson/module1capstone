@@ -44,5 +44,30 @@ namespace CapstoneTests
             // Assert
             Assert.AreEqual(10M, result);
         }
+
+        [TestMethod]
+        public void SubtractingQuantityUpdatesCurrentQuantity()
+        {
+            //Arrange
+            Catering catering = new Catering();
+            CateringItem newItem = new CateringItem("B1", "Soda", 1.50M, "B");
+            //Act
+            int result = catering.SubtractQuantity(newItem, 3);
+            //Assert
+            Assert.AreEqual(47, result);
+        }
+
+        [TestMethod]
+        public void SubtractingQuantityUpdatesCurrentBalance()
+        {
+            //Arrange
+            Money money = new Money();
+            money.CurrentBalance = 50.00M;
+            //CateringItem newItem = new CateringItem("B1", "Soda", 1.50M, "B");
+            //Act
+            decimal result = money.SubtractMoney(10.00M);
+            //Assert
+            Assert.AreEqual(40.00M, result);
+        }
     }
 }

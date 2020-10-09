@@ -29,6 +29,7 @@ namespace Capstone.Classes
         // Method to take in product code and return a Catering Item
         public CateringItem FindCorrectItem(string productCode)
         {
+            
             foreach (CateringItem item in items)
             {
                 if (item.ProductCode == productCode)
@@ -41,7 +42,10 @@ namespace Capstone.Classes
         public int SubtractQuantity(CateringItem selectedItem, int purchaseQuantity)
         {
             return selectedItem.Quantity -= purchaseQuantity;
+            
         }
+
+
 
         //sample Question Manager for help
         // empty constructor
