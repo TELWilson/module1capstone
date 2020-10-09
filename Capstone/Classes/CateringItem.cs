@@ -30,37 +30,12 @@ namespace Capstone.Classes
 
         public int Quantity { get; set; }
 
-        //public int SubtractQuantity(string purchaseCode, int purchaseQuantity)
-        //{
-
-        //    return this.Quantity -= purchaseQuantity;
-        //}
-
-        //public int SubtractQuantity(string purchaseCode, int purchaseQuantity)
-        //{
-        //    foreach (CateringItem item in items)
-        //    {
-        //        if (this.ProductCode == purchaseCode)
-        //        {
-
-        //        }
-        //    }
-        //    this.items
-        //    //return this.Quantity -= purchaseQuantity;
-        //}
+        
 
         public override string ToString()
         {
             return this.ProductCode + " " + this.Name + " " + this.Price + " " + this.Type + " " + this.Quantity;
         }
-
-
-
-
-
-
-
-
-        // See interview question for sample
+     
     }
 }

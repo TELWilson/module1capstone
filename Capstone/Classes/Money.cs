@@ -6,19 +6,24 @@ namespace Capstone.Classes
 {
     public class Money
     {
+        private decimal moneyAdd;
         public Money()
         {
-
+            this.MoneyAdd = moneyAdd;
         }
         public decimal CurrentBalance { get; set; } = 0;
+
+        public decimal MoneyAdd { get; set; }
+        
 
         public decimal AddMoney(decimal moneyAdd)
         {
             
-            if(this.CurrentBalance + moneyAdd > 5000.00M)
+            if(this.CurrentBalance + moneyAdd > 5000.00M || moneyAdd < 0.0M)
             {
                 return this.CurrentBalance;
             }
+            
             return this.CurrentBalance += moneyAdd;
         }
 

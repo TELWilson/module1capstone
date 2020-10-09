@@ -11,6 +11,7 @@ namespace Capstone.Classes
     public class FileAccess
     {
         private string filePath = @"C:\Catering\cateringsystem.csv";
+        private string logFilePath = @"C:\Catering\Log.txt";
 
 
         public void LoadCateringItems(Catering groupOfCateringItems)
@@ -23,7 +24,7 @@ namespace Capstone.Classes
 
                     string[] parts = line.Split("|");
 
-                    string productCode = parts[0];  // code, name, price, type
+                    string productCode = parts[0];  
                     string name = parts[1];
                     decimal price = decimal.Parse(parts[2]);
                     string type = parts[3];
@@ -35,12 +36,22 @@ namespace Capstone.Classes
             }
         }
         
+        public void TransactionAuditLog (string message)
+        {
+
+            using (StreamWriter writer = new StreamWriter(logFilePath, true))
+            {
+                writer.WriteLine(DateTime.Now + " " + message);
+                
+
+            }
+        }
 
         
 
         
 
-        // call an instance of the catering class, use string array to create new catering items to add back to catering class
+        
 
         //Readme part 8
         //StreamWriter to Log.txt, File Path should return to catering directory
