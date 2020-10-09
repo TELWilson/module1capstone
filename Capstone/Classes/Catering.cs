@@ -25,14 +25,21 @@ namespace Capstone.Classes
         {
             this.items.Add(item);
         }
+
+        public decimal Money { get; set; } = 0;
+
+        //public decimal AddMoney(decimal moneyAdd)
+        //{
+        //    return 0.0m;
+        //}
+       
    
         //sample Question Manager for help
         // empty constructor
-        //property AllCateringItems that returns the private list items
-        //Will need a method for adding catering items 
+        
 
 
-        // each item starts with qty 50 and will be deducted as users purchase items
+        // each item will be deducted as users purchase items
         // when item has run out, need to return "SOLD OUT"
         //If product code is invalid, return to purchase menu, might be a good place for a try catch. "invalid code entered"
         //If product is sold out, return to purchase menu (could be part of try catch) "sold out"
@@ -47,7 +54,7 @@ namespace Capstone.Classes
         //Will need to print out current balance at the bottom of purchasing menu (value of money property)
 
         //Completing transaction needs generate a report to user interface
-        //??Need to figure out number of 20s, 10s, 5s, 1s, quarters, dimes, nickels to return for change
+        //Need to figure out number of 20s, 10s, 5s, 1s, quarters, dimes, nickels to return for change
         // need to update current balance to 0 when transaction is complete
 
         //will need to write a line to log.txt when money is added, change is given, number of product ordered

@@ -14,16 +14,19 @@ namespace Capstone.Classes
     {
         private Catering catering;
         private FileAccess files;
+        
+        
 
         public UserInterface()
         {
             this.catering = new Catering();
             this.files = new FileAccess();
+            
         }
        
         public void RunInterface()
         {
-            files.LoadCateringItems(this.catering);     // Can't explain this line
+            files.LoadCateringItems(this.catering);     
 
             bool done = false;
             while (!done)
@@ -72,6 +75,10 @@ namespace Capstone.Classes
                 {
                     case "1":
                         //this.AddMoney();
+                        Console.WriteLine("Please enter a whole number for the amount of money you would like to add up to $5000");
+                        decimal moneyAdd = Convert.ToDecimal(Console.ReadLine());
+                        this.AddMoney(moneyAdd);
+                        
                         break;
                     case "2":
                         //this.SelectProducts();
@@ -94,6 +101,13 @@ namespace Capstone.Classes
                 Console.WriteLine(item);
             }
 
+        }
+
+        public decimal AddMoney(decimal moneyAdd)
+        {
+            this.AddMoney(moneyAdd);
+            
+            return 0.0m;
         }
 
     }

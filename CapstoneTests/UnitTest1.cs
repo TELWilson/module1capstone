@@ -1,3 +1,4 @@
+using Capstone.Classes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CapstoneTests
@@ -5,10 +6,30 @@ namespace CapstoneTests
     [TestClass]
     public class UnitTest1
     {
+        //[TestMethod]
+        //public void DoesStreamReaderAccessPartsArray()
+        //{
+        //    //Arrange
+        //    FileAccess access = new FileAccess();
+        //    //Act
+        //    string result = access.LoadCateringItems("B1|Soda|1.50|B");
+        //    //Assert
+        //    Assert.AreEqual(
+        //    //Generate tests as we work through catering, catering item, and maybe file access
+        //}
+
         [TestMethod]
-        public void TestMethod1()
+        public void DoesAddItemActuallyIncreaseCountOfItems()
         {
-            //Generate tests as we work through catering, catering item, and maybe file access
+            // Arrange
+            Catering catering = new Catering();
+            CateringItem newItem = new CateringItem("B1", "Soda", 1.50M, "B");
+          
+            // Act
+            catering.Add(newItem);
+            System.Collections.Generic.List<CateringItem> cateringItems = catering.AllCateringItems;
+            //Assert
+            Assert.AreEqual(1, cateringItems.Count);
         }
     }
 }
